@@ -19,7 +19,7 @@
       const prompt = document.getElementById("prompt").value;
       document.getElementById("result").innerHTML = "Generating...";
 
-      const res = await fetch("https://exemplar1.app.n8n.cloud/webhook-test/generate-image", {
+      const res = await fetch("https://exemplar1.app.n8n.cloud/webhook/generate-image", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ prompt })
@@ -32,3 +32,4 @@
   </script>
 </body>
 </html>
+
