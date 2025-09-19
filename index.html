@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AI Image Generator</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 40px; text-align: center; }
+    input, button { padding: 10px; margin: 10px; font-size: 16px; }
+    img { margin-top: 20px; max-width: 500px; border-radius: 12px; }
+  </style>
+</head>
+<body>
+  <h1>AI Image Generator</h1>
+  <input id="prompt" type="text" placeholder="Type something...">
+  <button onclick="generateImage()">Generate</button>
+  <div id="result"></div>
+
+  <script>
+    async function generateImage() {
+      const prompt = document.getElementById("prompt").value;
+      document.getElementById("result").innerHTML = "Generating...";
+
+      const res = await fetch("https://exemplar1.app.n8n.cloud/webhook-test/generate-image", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ prompt })
+      });
+
+      const data = await res.json();
+      document.getElementById("result").innerHTML =
+        `<img src="${data.image_url}" alt="Generated Image">`;
+    }
+  </script>
+</body>
+</html>
