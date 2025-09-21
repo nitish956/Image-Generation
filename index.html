@@ -27,9 +27,10 @@
 
       const data = await res.json();
       document.getElementById("result").innerHTML =
-        `<img src="${data.image_url}" alt="Generated Image">`;
+        `<img id="generatedImage" alt="Generated Image" />`;
     }
   </script>
 </body>
 </html>
+
 
